@@ -3,7 +3,9 @@
 ## Lab2
 In this lab, I mainly write the memory management code for the operating system. Memory management has two components.<br>
 The first component is a physical memory allocator for the kernel, so that the kernel can allocate memory and later free it. The allocator will operate in units of 4096 bytes, called pages. I implemented the code to maintain data structures that record which physical pages are free and which are allocated, and how many processes are sharing each allocated page. I also wrote the routines to allocate and free pages of memory.<br>
-The second component of memory management is virtual memory, which maps the virtual addresses used by kernel and user software to addresses in physical memory. The x86 hardware's memory management unit (MMU) performs the mapping when instructions use memory, consulting a set of page tables. 
+The second component of memory management is virtual memory, which maps the virtual addresses used by kernel and user software to addresses in physical memory. The x86 hardware's memory management unit (MMU) performs the mapping when instructions use memory, consulting a set of page tables.
+- Address translation is as shown in the following image:<br>
+  ![AddressTranslation](https://github.com/TactfulYuu/OperatingSystem-jos/tree/lab2/img/AddressTranslation.png)
 ### Part 1: Physical Page Management
 In this part, I implementing physical page allocator by modifying file kern/pmap.c and implementing code for the following functions:
 ```
